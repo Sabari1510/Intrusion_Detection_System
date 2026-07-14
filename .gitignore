@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datasets
+dataset/raw/
+dataset/cleaned/
+
+# Models
+saved_models/
+models/
+*.pkl
+*.joblib
+
+# Logs
+logs/
