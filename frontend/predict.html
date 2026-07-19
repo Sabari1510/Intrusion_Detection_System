@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction | Network Intrusion Detection System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <div class="logo">
+
+            <h2>NIDS</h2>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="predict.html">Prediction</a></li>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- Prediction Section -->
+
+    <section class="predict-container">
+
+        <h1>Network Traffic Prediction</h1>
+
+        <p>
+
+            Upload a CSV file containing network traffic records
+            or manually enter feature values for prediction.
+
+        </p>
+
+        <div class="predict-box">
+
+            <h2>Upload CSV File</h2>
+
+            <input type="file" id="csvFile">
+
+            <button onclick="predictCSV()">
+
+                Predict Attack
+
+            </button>
+
+        </div>
+
+        <div class="predict-box">
+
+            <h2>Manual Input</h2>
+
+            <input type="number" id="flowDuration" placeholder="Flow Duration">
+
+            <input type="number" id="packetLength" placeholder="Packet Length">
+
+            <input type="number" id="flowBytes" placeholder="Flow Bytes/s">
+
+            <button onclick="predictManual()">
+
+                Predict
+
+            </button>
+
+        </div>
+
+        <!-- Prediction Result -->
+
+        <div class="result-box">
+
+            <h2>Prediction Result</h2>
+
+            <h3 id="prediction">
+
+                Waiting for Prediction...
+
+            </h3>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+
+            © 2026 Network Intrusion Detection System
+
+        </p>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
