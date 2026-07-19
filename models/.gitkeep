@@ -1,0 +1,6 @@
+# Place the trained stacking ensemble here:
+#   stacking_ensemble.joblib
+#
+# Example (from the ML pipeline):
+#   import joblib
+#   joblib.dump(trained_pipeline, "models/stacking_ensemble.joblib")

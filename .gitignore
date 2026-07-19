@@ -1,23 +1,52 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
 
-# Virtual Environment
+# Virtual environments
 venv/
+.venv/
+env/
 .env
+.env.*
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Datasets
+# Datasets (large files)
 dataset/raw/
 dataset/cleaned/
 
-# Models
+# Trained models (keep folder, ignore weights)
+models/**
+!models/.gitkeep
 saved_models/
-models/
 *.pkl
 *.joblib
 
 # Logs
 logs/
+api/logs/
+*.log
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Testing / coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# API local
+api/.venv/
