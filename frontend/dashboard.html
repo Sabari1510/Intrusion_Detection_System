@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NIDS Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h2>NIDS</h2>
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="predict.html">Prediction</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="dashboard">
+
+<h1>Network Intrusion Detection Dashboard</h1>
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h2>Total Packets</h2>
+
+<p id="totalPackets">504473</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Normal Traffic</h2>
+
+<p id="normalTraffic">419297</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Attack Traffic</h2>
+
+<p id="attackTraffic">85176</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>Model Accuracy</h2>
+
+<p>99.68%</p>
+
+</div>
+
+</div>
+
+<div class="chart-container">
+
+<div class="chart">
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+<div class="chart">
+
+<canvas id="barChart"></canvas>
+
+</div>
+
+</div>
+
+<div class="table-container">
+
+<h2>Recent Predictions</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Packet ID</th>
+
+<th>Prediction</th>
+
+<th>Confidence</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>1001</td>
+
+<td>BENIGN</td>
+
+<td>99.9%</td>
+
+</tr>
+
+<tr>
+
+<td>1002</td>
+
+<td>DDoS</td>
+
+<td>98.5%</td>
+
+</tr>
+
+<tr>
+
+<td>1003</td>
+
+<td>PortScan</td>
+
+<td>97.4%</td>
+
+</tr>
+
+<tr>
+
+<td>1004</td>
+
+<td>DoS Hulk</td>
+
+<td>99.1%</td>
+
+</tr>
+
+<tr>
+
+<td>1005</td>
+
+<td>BENIGN</td>
+
+<td>99.8%</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Network Intrusion Detection System
+
+</p>
+
+</footer>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
