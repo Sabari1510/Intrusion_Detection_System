@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIDS Stacking Ensemble Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="glow-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+    
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-shield-halved logo-icon"></i>
+                <div class="logo-text">
+                    <h1>AegisNIDS</h1>
+                    <span>SMOTE-Enhanced Stacking Ensemble IDS</span>
+                </div>
+            </div>
+            <div class="api-status-badge" id="apiStatusBadge">
+                <span class="status-dot pulsing"></span>
+                <span class="status-label">Checking API Connection...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Side: Features Input & Presets -->
+            <section class="panel glass-panel input-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-network-wired"></i> Network Flow Feature Input</h2>
+                    <p>Enter network-flow features below or load a mock preset to analyze traffic.</p>
+                </div>
+                
+                <!-- Presets Section -->
+                <div class="preset-section">
+                    <h3>Quick Presets</h3>
+                    <div class="preset-buttons">
+                        <button class="btn btn-secondary preset-btn" data-preset="BENIGN">
+                            <i class="fa-solid fa-check-double text-success"></i> Benign Flow
+                        </button>
+                        <button class="btn btn-secondary preset-btn" data-preset="DDoS">
+                            <i class="fa-solid fa-biohazard text-danger"></i> DDoS Attack
+                        </button>
+                        <button class="btn btn-secondary preset-btn" data-preset="PortScan">
+                            <i class="fa-solid fa-radar text-warning"></i> Port Scan
+                        </button>
+                        <button class="btn btn-secondary preset-btn" data-preset="Botnet">
+                            <i class="fa-solid fa-robot text-danger"></i> Botnet Activity
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Features Input Form -->
+                <form id="flowForm" class="flow-form">
+                    <div class="accordion-group">
+                        
+                        <!-- Group 1: Inter-Arrival Times (IAT) -->
+                        <div class="accordion-item expanded">
+                            <div class="accordion-header">
+                                <h3><i class="fa-regular fa-clock"></i> Inter-Arrival Time (IAT) Features</h3>
+                                <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <div class="accordion-content grid-2-col">
+                                <div class="input-group">
+                                    <label for="fwd_iat_std">Fwd IAT Std</label>
+                                    <input type="number" step="any" id="fwd_iat_std" name="Fwd IAT Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="bwd_iat_min">Bwd IAT Min</label>
+                                    <input type="number" step="any" id="bwd_iat_min" name="Bwd IAT Min" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="flow_iat_min">Flow IAT Min</label>
+                                    <input type="number" step="any" id="flow_iat_min" name="Flow IAT Min" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="flow_iat_max">Flow IAT Max</label>
+                                    <input type="number" step="any" id="flow_iat_max" name="Flow IAT Max" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="flow_iat_std">Flow IAT Std</label>
+                                    <input type="number" step="any" id="flow_iat_std" name="Flow IAT Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="flow_iat_mean">Flow IAT Mean</label>
+                                    <input type="number" step="any" id="flow_iat_mean" name="Flow IAT Mean" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fwd_iat_max">Fwd IAT Max</label>
+                                    <input type="number" step="any" id="fwd_iat_max" name="Fwd IAT Max" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fwd_iat_total">Fwd IAT Total</label>
+                                    <input type="number" step="any" id="fwd_iat_total" name="Fwd IAT Total" required value="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 2: Packet Length & Volume Metrics -->
+                        <div class="accordion-item expanded">
+                            <div class="accordion-header">
+                                <h3><i class="fa-solid fa-chart-bar"></i> Packet Length & Volume Features</h3>
+                                <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <div class="accordion-content grid-2-col">
+                                <div class="input-group">
+                                    <label for="bwd_packet_length_std">Bwd Packet Length Std</label>
+                                    <input type="number" step="any" id="bwd_packet_length_std" name="Bwd Packet Length Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="bwd_packet_length_mean">Bwd Packet Length Mean</label>
+                                    <input type="number" step="any" id="bwd_packet_length_mean" name="Bwd Packet Length Mean" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="bwd_packet_length_max">Bwd Packet Length Max</label>
+                                    <input type="number" step="any" id="bwd_packet_length_max" name="Bwd Packet Length Max" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="avg_bwd_segment_size">Avg Bwd Segment Size</label>
+                                    <input type="number" step="any" id="avg_bwd_segment_size" name="Avg Bwd Segment Size" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="packet_length_std">Packet Length Std</label>
+                                    <input type="number" step="any" id="packet_length_std" name="Packet Length Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="max_packet_length">Max Packet Length</label>
+                                    <input type="number" step="any" id="max_packet_length" name="Max Packet Length" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="packet_length_variance">Packet Length Variance</label>
+                                    <input type="number" step="any" id="packet_length_variance" name="Packet Length Variance" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="average_packet_size">Average Packet Size</label>
+                                    <input type="number" step="any" id="average_packet_size" name="Average Packet Size" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="packet_length_mean">Packet Length Mean</label>
+                                    <input type="number" step="any" id="packet_length_mean" name="Packet Length Mean" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="min_packet_length">Min Packet Length</label>
+                                    <input type="number" step="any" id="min_packet_length" name="Min Packet Length" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="subflow_fwd_bytes">Subflow Fwd Bytes</label>
+                                    <input type="number" step="any" id="subflow_fwd_bytes" name="Subflow Fwd Bytes" required value="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 3: Flags, Session, Idle & Active states -->
+                        <div class="accordion-item expanded">
+                            <div class="accordion-header">
+                                <h3><i class="fa-solid fa-server"></i> Flags, Flow Duration & State Features</h3>
+                                <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                            </div>
+                            <div class="accordion-content grid-2-col">
+                                <div class="input-group">
+                                    <label for="flow_duration">Flow Duration</label>
+                                    <input type="number" step="any" id="flow_duration" name="Flow Duration" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="fin_flag_count">FIN Flag Count</label>
+                                    <input type="number" min="0" max="1" id="fin_flag_count" name="FIN Flag Count" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="psh_flag_count">PSH Flag Count</label>
+                                    <input type="number" min="0" max="1" id="psh_flag_count" name="PSH Flag Count" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="ack_flag_count">ACK Flag Count</label>
+                                    <input type="number" min="0" max="1" id="ack_flag_count" name="ACK Flag Count" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="bwd_iat_std">Bwd IAT Std</label>
+                                    <input type="number" step="any" id="bwd_iat_std" name="Bwd IAT Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="active_mean">Active Mean</label>
+                                    <input type="number" step="any" id="active_mean" name="Active Mean" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="active_min">Active Min</label>
+                                    <input type="number" step="any" id="active_min" name="Active Min" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="active_std">Active Std</label>
+                                    <input type="number" step="any" id="active_std" name="Active Std" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="idle_mean">Idle Mean</label>
+                                    <input type="number" step="any" id="idle_mean" name="Idle Mean" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="idle_min">Idle Min</label>
+                                    <input type="number" step="any" id="idle_min" name="Idle Min" required value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label for="idle_max">Idle Max</label>
+                                    <input type="number" step="any" id="idle_max" name="Idle Max" required value="0">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block submit-btn" id="submitBtn">
+                        <i class="fa-solid fa-arrows-spin loading-icon" style="display:none;"></i>
+                        <span><i class="fa-solid fa-magnifying-glass"></i> Predict Traffic Threat</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Right Side: Model Metrics & Classification Prediction Results -->
+            <section class="right-column-grid">
+                
+                <!-- Prediction Results Panel -->
+                <div class="panel glass-panel results-panel" id="resultsPanel">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-square-poll-vertical"></i> Analysis Result</h2>
+                        <p>Submit network flow metrics to analyze potential threats.</p>
+                    </div>
+                    
+                    <div class="result-placeholder" id="resultPlaceholder">
+                        <i class="fa-solid fa-shield-virus placeholder-icon"></i>
+                        <p>Awaiting Network Feature Submission...</p>
+                    </div>
+                    
+                    <div class="result-content" id="resultContent" style="display: none;">
+                        <div class="result-hero" id="resultHero">
+                            <span class="threat-badge" id="threatBadge">BENIGN</span>
+                            <div class="confidence-gauge">
+                                <span class="gauge-label">Ensemble Confidence:</span>
+                                <h3 id="confidenceVal">98.5%</h3>
+                                <div class="progress-bar-wrapper">
+                                    <div class="progress-bar-fill" id="confidenceBar" style="width: 98.5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Description box for predicted class -->
+                        <div class="attack-desc-box" id="attackDescBox">
+                            <h4 id="attackDescTitle">Benign Traffic</h4>
+                            <p id="attackDescBody">Normal user activity. No threat detected.</p>
+                        </div>
+                        
+                        <!-- Probabilities list -->
+                        <div class="class-prob-section">
+                            <h3><i class="fa-solid fa-list-ol"></i> Probability Distribution</h3>
+                            <div class="probability-list" id="probabilityList">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Statistics Panel -->
+                <div class="panel glass-panel metrics-panel">
+                    <div class="panel-header animate-header">
+                        <h2><i class="fa-solid fa-circle-nodes"></i> Ensemble Performance</h2>
+                        <p>Overall evaluation statistics using the 80/20 test split.</p>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="metric-title">Accuracy</span>
+                            <h3 class="metric-val">99.82%</h3>
+                            <span class="metric-label">All classes combined</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-title">Precision</span>
+                            <h3 class="metric-val">99.82%</h3>
+                            <span class="metric-label">Weighted average</span>
+                        </div>
+                        <div class="metric-card font-highlight">
+                            <span class="metric-title">Recall</span>
+                            <h3 class="metric-val">99.82%</h3>
+                            <span class="metric-label">Weighted average</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-title">F1-Score</span>
+                            <h3 class="metric-val">99.82%</h3>
+                            <span class="metric-label">Robust harmonic mean</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+        </main>
+    </div>
+
+    <!-- Script Entry Point -->
+    <script src="app.js"></script>
+</body>
+</html>
