@@ -1,0 +1,31 @@
+Feature,Importance
+Min Packet Length,0.22934026
+Bwd Packet Length Mean,0.08743888
+Average Packet Size,0.06929457
+Packet Length Mean,0.06023082
+PSH Flag Count,0.05787566
+Max Packet Length,0.045515668
+Avg Bwd Segment Size,0.04141204
+Subflow Fwd Bytes,0.03928437
+Bwd Packet Length Std,0.038706508
+Active Mean,0.035430145
+Bwd Packet Length Max,0.030119322
+Active Min,0.02702141
+Bwd IAT Std,0.02582931
+Bwd IAT Min,0.0256155
+Packet Length Std,0.025125427
+Fwd IAT Std,0.022170054
+ACK Flag Count,0.021647677
+Flow IAT Mean,0.017125143
+Idle Mean,0.015887035
+Flow IAT Std,0.014600124
+Flow Duration,0.010830466
+Fwd IAT Total,0.010219759
+FIN Flag Count,0.009922876
+Idle Max,0.008384329
+Packet Length Variance,0.0077486793
+Flow IAT Max,0.0067387107
+Idle Min,0.005840927
+Fwd IAT Max,0.004574986
+Flow IAT Min,0.004059158
+Active Std,0.002010248

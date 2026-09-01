@@ -1,0 +1,48 @@
+# =========================
+# DATASETS
+# =========================
+dataset/raw/
+dataset/cleaned/*.csv
+dataset/cleaned/*.parquet
+dataset/cleaned/*.npy
+
+# Keep folder structure
+!dataset/.gitkeep
+!dataset/cleaned/.gitkeep
+!dataset/raw/.gitkeep
+
+# =========================
+# LARGE TRAINED MODELS
+# =========================
+models/*.pkl
+models/*.joblib
+
+# Keep model folder structure
+!models/.gitkeep
+
+# =========================
+# JUPYTER
+# =========================
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*.so
+
+# =========================
+# ENVIRONMENT / SECRETS
+# =========================
+.env
+venv/
+.venv/
+env/
+
+# =========================
+# SYSTEM FILES
+# =========================
+.DS_Store
+Thumbs.db

@@ -1,0 +1,31 @@
+Feature,Importance
+Flow IAT Min,8456
+Fwd IAT Std,3473
+Flow IAT Mean,3390
+Fwd IAT Total,3258
+Subflow Fwd Bytes,3100
+Flow Duration,3010
+Bwd IAT Min,2988
+Flow IAT Std,2579
+Fwd IAT Max,2526
+Bwd IAT Std,2493
+Flow IAT Max,2321
+Average Packet Size,2286
+Bwd Packet Length Mean,2176
+Bwd Packet Length Std,1614
+Packet Length Std,1390
+Bwd Packet Length Max,1361
+Packet Length Variance,1346
+Active Min,1300
+Max Packet Length,1244
+Packet Length Mean,1220
+Idle Min,996
+Active Mean,822
+Min Packet Length,793
+Active Std,682
+ACK Flag Count,544
+Idle Max,476
+Idle Mean,435
+PSH Flag Count,382
+FIN Flag Count,374
+Avg Bwd Segment Size,0
